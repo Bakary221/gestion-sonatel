@@ -9,34 +9,44 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProfileService = void 0;
+exports.ProfilSortiService = void 0;
 const client_1 = require("@prisma/client");
-const prisma = new client_1.PrismaClient();
-class ProfileService {
-    static create(data) {
+class ProfilSortiService {
+    constructor() {
+        this.prisma = new client_1.PrismaClient();
+    }
+    selectAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profil.create({ data });
+            return yield this.prisma.profilSorti.findMany({
+                select: { nom: true }
+            });
         });
     }
-    static findAll() {
+    insert(profilSortie) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profil.findMany();
+            return yield this.prisma.profilSorti.create({ data: profilSortie });
         });
     }
-    static findById(id) {
+    update(id, profilSortie) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profil.findUnique({ where: { id } });
+            return yield this.prisma.profilSorti.update({
+                where: { id },
+                data: profilSortie
+            });
         });
     }
-    static update(id, data) {
+    delete(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profil.update({ where: { id }, data });
+            return yield this.prisma.profilSorti.delete({
+                where: { id }
+            });
         });
     }
-    static delete(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profil.delete({ where: { id } });
-        });
+    static getInstance() {
+        if (!ProfilSortiService.instance) {
+            ProfilSortiService.instance = new ProfilSortiService;
+        }
+        return ProfilSortiService.instance;
     }
 }
-exports.ProfileService = ProfileService;
+exports.ProfilSortiService = ProfilSortiService;

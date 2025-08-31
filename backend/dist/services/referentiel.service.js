@@ -9,34 +9,34 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProfileService = void 0;
+exports.ReferentielService = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
-class ProfileService {
-    static create(data) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profil.create({ data });
-        });
-    }
+class ReferentielService {
     static findAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profil.findMany();
+            return yield prisma.referentiel.findMany();
+        });
+    }
+    static create(data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield prisma.referentiel.create({ data });
         });
     }
     static findById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profil.findUnique({ where: { id } });
+            return yield prisma.referentiel.findUnique({ where: { id } });
         });
     }
     static update(id, data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profil.update({ where: { id }, data });
+            return yield prisma.referentiel.update({ where: { id }, data });
         });
     }
     static delete(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profil.delete({ where: { id } });
+            return yield prisma.referentiel.delete({ where: { id } });
         });
     }
 }
-exports.ProfileService = ProfileService;
+exports.ReferentielService = ReferentielService;
