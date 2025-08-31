@@ -1,5 +1,6 @@
 import express from 'express';
 import profileRouter from './routes/profile.route';
+import niveauxRouter from './routes/niveaux.route';
 
 const app = express();
 const PORT = 3100;
@@ -12,7 +13,7 @@ app.use('/profiles', profileRouter);
 
 // app.use("/users", usersRoutes); @Ousmane Marra
 // app.use("/promos", promoRoutes); @Bamba Jeeli
-// app.use("/niveaux", niveauRoutes); @KHadija Fall
+app.use("/niveaux", niveauxRouter); //@KHadija Fall
 // app.use("/competences", competenceRoutes); @Bakary Diassy
 // app.use("/referentiels", referentielRoutes); @Bakary Diassy
 // app.use("/tags", tagRoutes); @Anna Sock
