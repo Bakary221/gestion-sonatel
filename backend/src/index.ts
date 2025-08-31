@@ -1,14 +1,17 @@
 import express from 'express';
 import profileRouter from './routes/profile.route';
+import promoRouter from './routes/promo.route'; // Importez le routeur
 
 const app = express();
-const PORT = 3100;
+const PORT = 3000;
 
 // Middleware pour parser les requêtes JSON
 app.use(express.json());
 
 // Utiliser les routes pour les profils
 app.use('/profiles', profileRouter);
+app.use('/promos', promoRouter); // Utilisez le routeur pour /promos
+
 
 // app.use("/users", usersRoutes); @Ousmane Marra
 // app.use("/promos", promoRoutes); @Bamba Jeeli
