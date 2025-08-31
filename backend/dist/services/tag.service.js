@@ -9,41 +9,34 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CompetenceService = void 0;
+exports.TagService = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
-class CompetenceService {
-    static findAll() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.findMany();
-        });
-    }
+class TagService {
     static create(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.create({ data });
+            return yield prisma.tag.create({ data });
+        });
+    }
+    static findAll() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield prisma.tag.findMany();
         });
     }
     static findById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.findUnique({ where: { id } });
+            return yield prisma.tag.findUnique({ where: { id } });
         });
     }
     static update(id, data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.update({ where: { id }, data });
+            return yield prisma.tag.update({ where: { id }, data });
         });
     }
     static delete(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.delete({ where: { id } });
-        });
-    }
-    static findNiveau() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.findMany({
-                select: { niveaux: { select: { nom: true } } }
-            });
+            return yield prisma.tag.delete({ where: { id } });
         });
     }
 }
-exports.CompetenceService = CompetenceService;
+exports.TagService = TagService;

@@ -9,41 +9,34 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CompetenceService = void 0;
+exports.NiveauxServices = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
-class CompetenceService {
-    static findAll() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.findMany();
-        });
-    }
+class NiveauxServices {
     static create(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.create({ data });
+            return yield prisma.niveaux.create({ data });
+        });
+    }
+    static findAll() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield prisma.niveaux.findMany();
         });
     }
     static findById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.findUnique({ where: { id } });
+            return yield prisma.niveaux.findUnique({ where: { id } });
         });
     }
     static update(id, data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.update({ where: { id }, data });
+            return yield prisma.niveaux.update({ where: { id }, data });
         });
     }
     static delete(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.delete({ where: { id } });
-        });
-    }
-    static findNiveau() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.competence.findMany({
-                select: { niveaux: { select: { nom: true } } }
-            });
+            return yield prisma.niveaux.delete({ where: { id } });
         });
     }
 }
-exports.CompetenceService = CompetenceService;
+exports.NiveauxServices = NiveauxServices;

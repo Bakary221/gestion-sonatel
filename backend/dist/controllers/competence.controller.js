@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteCompetence = exports.updateCompetence = exports.getCompetence = exports.createCompetences = exports.getCompetences = void 0;
+exports.getCompetencesNiveau = exports.deleteCompetence = exports.updateCompetence = exports.getCompetence = exports.createCompetences = exports.getCompetences = void 0;
 const competence_service_1 = require("../services/competence.service");
 const competence_validator_1 = require("../validators/competence.validator");
 const getCompetences = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -75,3 +75,14 @@ const deleteCompetence = (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.deleteCompetence = deleteCompetence;
+const getCompetencesNiveau = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const competences = yield competence_service_1.CompetenceService.findNiveau();
+        res.json(competences);
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : 'Une erreur inconnue est survenue';
+        res.status(500).json({ error: message });
+    }
+});
+exports.getCompetencesNiveau = getCompetencesNiveau;

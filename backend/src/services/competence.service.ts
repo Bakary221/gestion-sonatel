@@ -23,4 +23,10 @@ export class CompetenceService{
     static async delete(id: number) {
         return await prisma.competence.delete({ where: { id } });
     }
+
+    static async findNiveau() {
+        return await prisma.competence.findMany({
+            select:{niveaux:{select :{nom:true}}}
+        });
+    }
 }

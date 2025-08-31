@@ -62,3 +62,13 @@ export const deleteCompetence = async (req: Request, res: Response) => {
     res.status(500).json({ error: message });
   }
 };
+
+export const getCompetencesNiveau = async (req: Request, res: Response) => {
+  try {
+    const competences = await CompetenceService.findNiveau();
+    res.json(competences);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Une erreur inconnue est survenue';
+    res.status(500).json({ error: message });
+  }
+};

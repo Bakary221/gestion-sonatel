@@ -1,5 +1,5 @@
 import express from 'express';
-import { getCompetences , createCompetences , getCompetence , updateCompetence , deleteCompetence} from '../controllers/competence.controller';
+import { getCompetences , createCompetences , getCompetence , updateCompetence , deleteCompetence , getCompetencesNiveau} from '../controllers/competence.controller';
 
 const router = express.Router();
 
@@ -8,6 +8,7 @@ router.post('/', createCompetences);
 router.get('/:id', getCompetence);
 router.put('/:id', updateCompetence);
 router.delete('/:id', deleteCompetence);
+router.get('/:id/niveaux', getCompetencesNiveau);
 
 
 

@@ -11,4 +11,5 @@ router.post('/', competence_controller_1.createCompetences);
 router.get('/:id', competence_controller_1.getCompetence);
 router.put('/:id', competence_controller_1.updateCompetence);
 router.delete('/:id', competence_controller_1.deleteCompetence);
+router.get('/:id/niveaux', competence_controller_1.getCompetencesNiveau);
 exports.default = router;
