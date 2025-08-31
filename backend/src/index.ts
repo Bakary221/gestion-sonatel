@@ -1,7 +1,8 @@
 import express , {Request , Response} from 'express';
-import profileRouter from './routes/profile.route';
 import competenceRoutes from './routes/competence.route';
 import referentielRoutes from './routes/referentiel.route';
+import profileRouter from './routes/profile.route';
+
 
 const app = express();
 const PORT = 4000;

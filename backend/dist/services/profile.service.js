@@ -15,27 +15,27 @@ const prisma = new client_1.PrismaClient();
 class ProfileService {
     static create(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profile.create({ data });
+            return yield prisma.profil.create({ data });
         });
     }
     static findAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profile.findMany();
+            return yield prisma.profil.findMany();
         });
     }
     static findById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profile.findUnique({ where: { id } });
+            return yield prisma.profil.findUnique({ where: { id } });
         });
     }
     static update(id, data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profile.update({ where: { id }, data });
+            return yield prisma.profil.update({ where: { id }, data });
         });
     }
     static delete(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma.profile.delete({ where: { id } });
+            return yield prisma.profil.delete({ where: { id } });
         });
     }
 }

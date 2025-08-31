@@ -4,6 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const competence_route_1 = __importDefault(require("./routes/competence.route"));
+const referentiel_route_1 = __importDefault(require("./routes/referentiel.route"));
 const profile_route_1 = __importDefault(require("./routes/profile.route"));
 const competence_route_1 = __importDefault(require("./routes/competence.route"));
 const referentiel_route_1 = __importDefault(require("./routes/referentiel.route"));

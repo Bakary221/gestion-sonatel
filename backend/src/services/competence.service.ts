@@ -8,7 +8,7 @@ export class CompetenceService{
         return await prisma.competence.findMany();
     }
 
-    static async create(data: { description: string }) {
+    static async create(data: { description: string , niveauxId: number}) {
         return await prisma.competence.create({ data });
     }
 
